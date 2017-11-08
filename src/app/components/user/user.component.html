@@ -1,0 +1,65 @@
+<h1 > {{name}}
+</h1>
+
+<ul>
+  <li> Age: {{age}}</li>
+  <li> email: {{email}}</li>
+  <li> Street: {{address.street}}</li>
+  <li> City: {{address.city}}</li>
+  <li> State: {{address.state}}</li>
+</ul>
+
+<button (click)='onClick()'> click on me</button>
+<button (click)='toggleEdit()'> Edit table </button>
+<div *ngIf='toggleEditTable'>
+<h1>Edit User</h1>
+<form>
+  <div>
+  <label for='name'> Name: </label>
+  <input type='text' [(ngModel)]='name' name='editTable'>
+  </div>
+  <div>
+      <label for='name'> Age: </label>
+      <input type='text' [(ngModel)]='age' name='editTable0'>
+      </div>
+  <div>
+      <label for='name'> Email: </label>
+      <input type='text' [(ngModel)]='email' name='editTable1'>
+      </div>
+      <div>
+          <label for='name'> Street: </label>
+          <input type='text' [(ngModel)]='address.street' name='editTable2'>
+          </div> 
+          <div>
+              <label for='name'> City: </label>
+              <input type='text' [(ngModel)]='address.city' name='editTable3'>
+              </div>    
+              <div>
+                  <label for='name'> State: </label>
+                  <input type='text' [(ngModel)]='address.state' name='editTable4'>
+                  </div>
+</form>
+</div>
+
+
+<h1>Hobbies</h1>
+<form (submit)= 'addHobby(hobby.value)'>
+  <div>
+    <label for='hobby'> Hobby:</label>
+    <input type='text' #hobby>
+  </div>
+</form>
+
+<ul>
+  <li *ngFor= 'let hobby of hobbies; let i = index'>{{i + 1}} : {{hobby}}
+    <button (click)='deleteHobby(hobby)'> Delete me</button>
+  </li>
+</ul>
+
+<h1>
+  Albums
+</h1>
+<div *ngFor= 'let album of albums'>
+  <h4>{{album.title}}</h4>
+  
+</div>
